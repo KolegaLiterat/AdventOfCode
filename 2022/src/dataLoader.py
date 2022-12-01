@@ -17,7 +17,6 @@ class DataLoader:
         for value in data:
             advent_of_code_data.append(self._convert_txt_to_int(value))
 
-        
         return advent_of_code_data
     
     def _convert_txt_to_int(self, value: str) -> int:
