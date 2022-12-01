@@ -12,6 +12,12 @@ class Calories():
         
         return sum_of_calories_with_elf.max()
     
+    def get_sum_of_top_three_packages(self):
+        sum_of_calories_with_elf = np.array(self._calculate_calories(), dtype=np.int32)
+        sorted_array = np.sort(sum_of_calories_with_elf)[::-1]
+
+        return sorted_array[0] + sorted_array[1] + sorted_array[2]
+    
     def _calculate_calories(self):
         self.Data.append(0)
         

@@ -7,6 +7,10 @@ def day1():
     
     print(f'Star one solution : {max_calories}')
 
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day1.txt").load_data()
+    sum_of_first_three_packages = Calories(data).get_sum_of_top_three_packages()
+
+    print(f'Star two solution : {sum_of_first_three_packages}')
 
 def main():
     day1()
