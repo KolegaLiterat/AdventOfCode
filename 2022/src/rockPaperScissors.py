@@ -56,7 +56,7 @@ class Tournament():
                 elif player_move[0] == "Paper":
                     player_points = 3 + player_move[1]
                 elif player_move[0] == "Scissors":
-                    player_points = 0 + player_move[1]
+                    player_points = 6 + player_move[1]
             case "Scissors":
                 if player_move[0] == "Rock":
                     player_points = 6 + player_move[1]
