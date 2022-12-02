@@ -21,7 +21,7 @@ def day2():
 
     rock_paper_scissors_setup_outcome = Tournament(data).run_setupo_tournament()
 
-    print(f'Star one solution: {rock_paper_scissors_setup_outcome}')
+    print(f'Star two solution: {rock_paper_scissors_setup_outcome}')
 
 def main():
     day2()
