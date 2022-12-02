@@ -14,3 +14,10 @@ def test_sum_of_top_three():
     sum_of_top_three_pacakges = Calories(data).get_sum_of_top_three_packages()
 
     assert sum_of_top_three_pacakges == 45000
+
+def test_rock_paper_scissors_winning():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day2.txt").paper_scissors_data()
+
+    print(data)
+
+    assert rock_paper_scissors_outcome == 15

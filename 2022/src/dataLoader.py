@@ -12,11 +12,23 @@ class DataLoader:
         advent_of_code_data: List[str] = []
 
         with open(self.FilePath) as data_file:
-            data: List[int] = data_file.readlines()
+            data: List[str] = data_file.readlines()
 
         for value in data:
             advent_of_code_data.append(self._convert_txt_to_int(value))
 
+        return advent_of_code_data
+
+    def paper_scissors_data(self):
+        advent_of_code_data: List[str] = []
+        
+        with open(self.FilePath) as data_file:
+            data: List[str] = data_file.readlines()
+
+        for value in data:
+
+            advent_of_code_data.append(self._save_match_data(value))
+        
         return advent_of_code_data
     
     def _convert_txt_to_int(self, value: str) -> int:
@@ -28,4 +40,11 @@ class DataLoader:
             new_value = int(value)
         
         return new_value
+    
+    def _save_match_data(self, value: str) -> List[str]:
+        match : List[str] = []
+
+        match.append(value[:3].split(" "))
+
+        return match
         
