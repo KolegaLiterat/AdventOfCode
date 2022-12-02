@@ -1,5 +1,6 @@
 from src.dataLoader import DataLoader
 from src.calories import Calories
+from src.rockPaperScissors import Tournament
 
 def test_package():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day1.txt").load_data()
@@ -18,6 +19,6 @@ def test_sum_of_top_three():
 def test_rock_paper_scissors_winning():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day2.txt").paper_scissors_data()
 
-    print(data)
+    rock_paper_scissors_outcome = Tournament(data).run_tournament()
 
     assert rock_paper_scissors_outcome == 15

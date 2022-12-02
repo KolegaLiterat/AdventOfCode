@@ -26,9 +26,8 @@ class DataLoader:
             data: List[str] = data_file.readlines()
 
         for value in data:
-
             advent_of_code_data.append(self._save_match_data(value))
-        
+
         return advent_of_code_data
     
     def _convert_txt_to_int(self, value: str) -> int:
@@ -42,9 +41,7 @@ class DataLoader:
         return new_value
     
     def _save_match_data(self, value: str) -> List[str]:
-        match : List[str] = []
-
-        match.append(value[:3].split(" "))
+        match = value[:3].split(" ")
 
         return match
         
