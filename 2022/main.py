@@ -8,7 +8,6 @@ def day1():
     
     print(f'Star one solution : {max_calories}')
 
-    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day1.txt").load_data()
     sum_of_first_three_packages = Calories(data).get_sum_of_top_three_packages()
 
     print(f'Star two solution : {sum_of_first_three_packages}')
@@ -19,6 +18,10 @@ def day2():
     rock_paper_scissors_outcome = Tournament(data).run_tournament()
 
     print(f'Star one solution: {rock_paper_scissors_outcome}')
+
+    rock_paper_scissors_setup_outcome = Tournament(data).run_setupo_tournament()
+
+    print(f'Star one solution: {rock_paper_scissors_setup_outcome}')
 
 def main():
     day2()

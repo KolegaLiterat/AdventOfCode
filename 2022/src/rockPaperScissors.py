@@ -46,7 +46,7 @@ class Tournament():
             match_outcome = self._decode_moves(match[1], False, True)
             opponent_move = self._decode_moves(match[0], False, False)
 
-            print(f'Opponent used {opponent_move} and match outcome needs to be {match_outcome}')
+            sum_of_player_points = self._calculate_setup_outcome(match_outcome, opponent_move) + sum_of_player_points
         
         return sum_of_player_points
     
@@ -88,4 +88,34 @@ class Tournament():
             case other:
                 print("Missing move!")
             
+        return player_points
+    
+    def _calculate_setup_outcome(self, match_outcome: list, opponent_move: str):
+        player_points: int = 0
+
+        match match_outcome[0]:
+            case "Win":
+                if opponent_move == "Rock":
+                    player_points = match_outcome[1] + self.PlayerMoves["Y"][1]
+                elif opponent_move == "Paper":
+                    player_points = match_outcome[1] + self.PlayerMoves["Z"][1]
+                elif opponent_move == "Scissors":
+                    player_points = match_outcome[1] + self.PlayerMoves["X"][1]
+            case "Draw":
+                if opponent_move == "Rock":
+                    player_points = match_outcome[1] + self.PlayerMoves["X"][1]
+                elif opponent_move == "Paper":
+                    player_points = match_outcome[1] + self.PlayerMoves["Y"][1]
+                elif opponent_move == "Scissors":
+                    player_points = match_outcome[1] + self.PlayerMoves["Z"][1]
+            case "Lose":
+                if opponent_move == "Rock":
+                    player_points = match_outcome[1] + self.PlayerMoves["Z"][1]
+                elif opponent_move == "Paper":
+                    player_points = match_outcome[1] + self.PlayerMoves["X"][1]
+                elif opponent_move == "Scissors":
+                    player_points = match_outcome[1] + self.PlayerMoves["Y"][1]
+            case other:
+                print("Missin move!")
+
         return player_points
