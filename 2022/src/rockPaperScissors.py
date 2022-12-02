@@ -15,6 +15,12 @@ class Tournament():
         "Z" : ["Scissors", 3]
     }
 
+    MatchOutcomes = {
+        "X" : ["Lose", 0],
+        "Y" : ["Draw", 3],
+        "Z" : ["Win", 6],
+    }
+
     def __init__(self, data) -> None:
         self.MatchData = data
 
@@ -24,16 +30,31 @@ class Tournament():
         sum_of_player_points : int = 0
 
         for match in self.MatchData:
-            opponent_move = self._decode_moves(match[0], False)
-            player_move = self._decode_moves(match[1], True)
+            opponent_move = self._decode_moves(match[0], False, False)
+            player_move = self._decode_moves(match[1], True, False)
 
             sum_of_player_points = sum_of_player_points + self._calculate_outcome(player_move, opponent_move)
 
         return sum_of_player_points 
     
-    def _decode_moves(self, encrypted_move: str, is_player: bool):
-        if is_player == True:
+    def run_setupo_tournament(self):
+        match_outcome : str = "None"
+        opponent_move : str = "None"
+        sum_of_player_points : int = 0
+
+        for match in self.MatchData:
+            match_outcome = self._decode_moves(match[1], False, True)
+            opponent_move = self._decode_moves(match[0], False, False)
+
+            print(f'Opponent used {opponent_move} and match outcome needs to be {match_outcome}')
+        
+        return sum_of_player_points
+    
+    def _decode_moves(self, encrypted_move: str, is_player: bool, is_setup_match: bool):
+        if is_player == True and is_setup_match == False:
             move = self.PlayerMoves[encrypted_move]
+        elif is_player == False and is_setup_match == True:
+            move = self.MatchOutcomes[encrypted_move]
         else:
             move = self.OpponentMoves[encrypted_move]
         

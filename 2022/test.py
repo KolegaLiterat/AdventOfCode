@@ -22,3 +22,10 @@ def test_rock_paper_scissors_winning():
     rock_paper_scissors_outcome = Tournament(data).run_tournament()
 
     assert rock_paper_scissors_outcome == 15
+
+def test_rock_paper_scissors_setup_torunament():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day2.txt").paper_scissors_data()
+
+    rock_paper_scissors_outcome = Tournament(data).run_setupo_tournament()
+
+    assert rock_paper_scissors_outcome == 12
