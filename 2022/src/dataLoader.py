@@ -8,13 +8,18 @@ class DataLoader:
     def __init__(self, file_path: str) -> None:
         self.FilePath: str = file_path
 
-    def load_data(self) -> List[int]:
+    def load_strings(self) -> List[str]:
+        with open(self.FilePath) as input_file:
+            data_file = input_file.readlines()
+        
+        return data_file
+
+    def calories_data(self) -> List[int]:
         advent_of_code_data: List[str] = []
 
-        with open(self.FilePath) as data_file:
-            data: List[str] = data_file.readlines()
+        data_file = self.load_strings()
 
-        for value in data:
+        for value in data_file:
             advent_of_code_data.append(self._convert_txt_to_int(value))
 
         return advent_of_code_data
@@ -22,10 +27,9 @@ class DataLoader:
     def paper_scissors_data(self):
         advent_of_code_data: List[str] = []
         
-        with open(self.FilePath) as data_file:
-            data: List[str] = data_file.readlines()
+        data_file = self.load_strings()
 
-        for value in data:
+        for value in data_file:
             advent_of_code_data.append(self._save_match_data(value))
 
         return advent_of_code_data
