@@ -37,3 +37,10 @@ def test_item_rearrangement():
     sum_of_priorities = Packages(data).calculate_sum_of_priorities()
 
     assert sum_of_priorities == 157
+
+def test_badge_item():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day3.txt").elf_groups_data()
+
+    badge_items_sum = Packages(data).calculate_sum_of_badge_item()
+
+    assert badge_items_sum == 70

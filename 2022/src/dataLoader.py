@@ -44,6 +44,24 @@ class DataLoader:
             
         return advent_of_code_data
     
+    def elf_groups_data(self):
+        advent_of_code_data: List[str] = []
+        group_packages: List[str] = []
+        group_id: int = 0
+
+        data_file = self.load_strings()
+
+        for value in data_file:
+            group_packages.append(value[:-1])
+            group_id = group_id + 1
+
+            if group_id == 3:
+                advent_of_code_data.append(group_packages.copy())
+                group_packages.clear()
+                group_id = 0
+
+        return advent_of_code_data
+    
     def _convert_txt_to_int(self, value: str) -> int:
         new_value : int = -1
 

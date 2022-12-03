@@ -31,6 +31,12 @@ def day3():
 
     print(f'Star one solution: {sum_of_priorities} ')
 
+    gropus_data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day3.txt").elf_groups_data()
+
+    badge_items_sum = Packages(gropus_data).calculate_sum_of_badge_item()
+
+    print(f'Star two solution: {badge_items_sum} ')
+
 def main():
     day3()
 

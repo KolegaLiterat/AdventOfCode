@@ -24,7 +24,6 @@ class Packages():
         self._build_priorities_values()
 
         priorities_sum: int = 0
-        test = 0
         
         for package in self.PackagesData:
             item = self._find_the_same_item(package)
@@ -37,7 +36,26 @@ class Packages():
         
         return priorities_sum
     
+    def calculate_sum_of_badge_item(self):
+        self._build_priorities_values()
+        badge_items_sum: int = 0
+
+        for group in self.PackagesData:
+            badge_item = self._find_badge_item(group)
+            
+            print(len(badge_item))
+            
+            badge_items_sum = self.PrioritiesValues[list(badge_item)[0]] + badge_items_sum
+
+        return badge_items_sum
+
     def _find_the_same_item(self, package):
         item = np.intersect1d(list(package[0]), list(package[1]))
 
         return item
+    
+    def _find_badge_item(self, group):
+        common_item = set(group[0]).intersection(set(group[1]))
+        badge_item = common_item.intersection(set(group[2]))
+
+        return badge_item
