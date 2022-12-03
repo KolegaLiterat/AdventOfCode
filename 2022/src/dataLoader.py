@@ -34,6 +34,16 @@ class DataLoader:
 
         return advent_of_code_data
     
+    def packages_data(self):
+        advent_of_code_data: List[str] = []
+
+        data_file = self.load_strings()
+
+        for value in data_file:
+            advent_of_code_data.append(self._separate_packages(value[:-1]))
+            
+        return advent_of_code_data
+    
     def _convert_txt_to_int(self, value: str) -> int:
         new_value : int = -1
 
@@ -48,4 +58,9 @@ class DataLoader:
         match = value[:3].split(" ")
 
         return match
+    
+    def _separate_packages(self, value: str) -> List[str]:
+        first_package, second_package = value[:len(value)//2], value[len(value)//2:]
+
+        return first_package, second_package
         

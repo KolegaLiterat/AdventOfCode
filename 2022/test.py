@@ -29,3 +29,10 @@ def test_rock_paper_scissors_setup_torunament():
     rock_paper_scissors_setup_outcome = Tournament(data).run_setupo_tournament()
 
     assert rock_paper_scissors_setup_outcome == 12
+
+def test_item_rearrangement():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day3.txt").packages_data()
+
+    sum_of_priorities = 0
+
+    assert sum_of_priorities == 157
