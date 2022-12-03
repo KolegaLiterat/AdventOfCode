@@ -1,6 +1,7 @@
 from src.dataLoader import DataLoader
 from src.calories import Calories
 from src.rockPaperScissors import Tournament
+from src.packages import Packages
 
 def test_package():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day1.txt").calories_data()
@@ -33,6 +34,6 @@ def test_rock_paper_scissors_setup_torunament():
 def test_item_rearrangement():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day3.txt").packages_data()
 
-    sum_of_priorities = 0
+    sum_of_priorities = Packages(data).calculate_sum_of_priorities()
 
     assert sum_of_priorities == 157
