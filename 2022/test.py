@@ -49,6 +49,13 @@ def test_badge_item():
 def test_sections_assignments():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day4.txt").id_pairs()
     
-    pairs = SectionCleanup(data).find_overlaping_sections()
+    pairs = SectionCleanup(data, False).find_overlaping_sections()
 
     assert pairs == 2
+
+def test_any_overlap():
+    data = data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day4.txt").id_pairs()
+
+    overlaps = SectionCleanup(data, True).find_overlaping_sections()
+
+    assert overlaps == 4

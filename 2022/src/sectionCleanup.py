@@ -4,8 +4,9 @@ from typing import List
 
 @dataclass
 class SectionCleanup():
-    def __init__(self, data) -> None:
+    def __init__(self, data, is_any_overlap) -> None:
         self.SectionPairs = data
+        self.AnyOverlap = is_any_overlap
     
     def find_overlaping_sections(self):
         overlaps: int = 0
@@ -27,8 +28,12 @@ class SectionCleanup():
         first_section = np.array(id_ranges[0])
         second_section = np.array(id_ranges[1])
 
-        is_overlap_one_and_two = np.isin(first_section, second_section).all()
-        is_overlap_two_and_one = np.isin(second_section, first_section).all()
+        if self.AnyOverlap == False:
+            is_overlap_one_and_two = np.isin(first_section, second_section).all()
+            is_overlap_two_and_one = np.isin(second_section, first_section).all()
+        elif self.AnyOverlap == True:
+            is_overlap_one_and_two = np.isin(first_section, second_section).any()
+            is_overlap_two_and_one = np.isin(second_section, first_section).any()
 
         if is_overlap_one_and_two == True or is_overlap_two_and_one == True:
             overlaps = 1

@@ -41,9 +41,13 @@ def day3():
 def day4():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day4.txt").id_pairs()
     
-    pairs = SectionCleanup(data).find_overlaping_sections()
+    pairs = SectionCleanup(data, False).find_overlaping_sections()
 
     print(f'Star one solution: {pairs}')
+
+    overlaps = SectionCleanup(data, True).find_overlaping_sections()
+
+    print(f'Star two solution: {overlaps}')
 
 def main():
     day4()
