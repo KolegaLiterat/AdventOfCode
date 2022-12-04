@@ -44,3 +44,12 @@ def test_badge_item():
     badge_items_sum = Packages(data).calculate_sum_of_badge_item()
 
     assert badge_items_sum == 70
+
+def test_sections_assignments():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day4.txt").id_pairs()
+
+    print(data)
+    
+    pairs = 0
+
+    assert pairs == 2

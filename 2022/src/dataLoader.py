@@ -62,6 +62,16 @@ class DataLoader:
 
         return advent_of_code_data
     
+    def id_pairs(self):
+        advent_of_code_data: List[str] = []
+
+        data_file = self.load_strings()
+
+        for value in data_file:
+            advent_of_code_data.append(self._separate_ids(value))
+        
+        return advent_of_code_data
+    
     def _convert_txt_to_int(self, value: str) -> int:
         new_value : int = -1
 
@@ -81,4 +91,9 @@ class DataLoader:
         first_package, second_package = value[:len(value)//2], value[len(value)//2:]
 
         return first_package, second_package
+    
+    def _separate_ids(sefl, value: str) -> List[str]:
+        id_pair: List[str] = value[:-1].split(",")
+
+        return id_pair
         
