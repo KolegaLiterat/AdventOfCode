@@ -2,6 +2,7 @@ from src.dataLoader import DataLoader
 from src.calories import Calories
 from src.rockPaperScissors import Tournament
 from src.packages import Packages
+from src.sectionCleanup import SectionCleanup
 
 def day1():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day1.txt").calories_data()
@@ -37,8 +38,15 @@ def day3():
 
     print(f'Star two solution: {badge_items_sum} ')
 
+def day4():
+    data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/data/day4.txt").id_pairs()
+    
+    pairs = SectionCleanup(data).find_overlaping_sections()
+
+    print(f'Star one solution: {pairs}')
+
 def main():
-    day3()
+    day4()
 
 if __name__ == "__main__":
     main()

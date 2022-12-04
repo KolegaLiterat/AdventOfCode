@@ -43,8 +43,6 @@ class Packages():
         for group in self.PackagesData:
             badge_item = self._find_badge_item(group)
             
-            print(len(badge_item))
-            
             badge_items_sum = self.PrioritiesValues[list(badge_item)[0]] + badge_items_sum
 
         return badge_items_sum

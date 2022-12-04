@@ -2,6 +2,7 @@ from src.dataLoader import DataLoader
 from src.calories import Calories
 from src.rockPaperScissors import Tournament
 from src.packages import Packages
+from src.sectionCleanup import SectionCleanup
 
 def test_package():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day1.txt").calories_data()
@@ -47,9 +48,7 @@ def test_badge_item():
 
 def test_sections_assignments():
     data = DataLoader("/Volumes/OutsideMac/Repozytoria/AdventOfCode/AdventOfCode/2022/test_data/day4.txt").id_pairs()
-
-    print(data)
     
-    pairs = 0
+    pairs = SectionCleanup(data).find_overlaping_sections()
 
     assert pairs == 2
